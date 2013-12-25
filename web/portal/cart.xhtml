@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="./portalTemplate.xhtml">
+
+        <ui:define name="top">
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Sepetim:"/>
+                    <h:outputLabel value="#{shoppingCart.numberOfItems}"/>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+        <ui:define name="content">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Ara Toplam:"/>
+                    <p:outputLabel value="#{shoppingCart.subtotal}"> TL</p:outputLabel> 
+                </p:panelGrid> 
+                <p:dataTable>
+                    <p:column>
+                        <f:facet name="header"><h:outputLabel value="Ürün Adı"/></f:facet>
+                        <p:outputLabel value="#{shoppingCartItem.product.productName}"></p:outputLabel>
+                    </p:column> 
+                    <p:column>
+                        <f:facet name="header"><h:outputLabel value="Ürün Fİyatı"/></f:facet>
+                        <p:outputLabel value="#{shoppingCartItem.product.productPrice}"></p:outputLabel>
+                    </p:column> 
+                    <p:column>
+                        <f:facet name="header"><p:outputLabel value="Ürün Adedi"/></f:facet>
+                        <p:inputText value="#{shoppingCartItem.quantity}"/> 
+                        <p:commandLink action="#{shoppingCart.update(product, quantity)}" value="Update"/>
+                    </p:column> 
+                </p:dataTable>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+
+</html>
+
