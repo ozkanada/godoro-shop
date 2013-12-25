@@ -7,11 +7,15 @@
 package cart;
 
 import entity.Product;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author GOGO
  */
+@ManagedBean
+@SessionScoped
 public class ShoppingCartItem {
     Product product;
     short quantity;
