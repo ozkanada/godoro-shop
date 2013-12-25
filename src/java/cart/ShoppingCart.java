@@ -16,12 +16,12 @@ import java.util.List;
 public class ShoppingCart {
 
     List<ShoppingCartItem> items;
-    int numberOfıtems;
+    int numberOfItems;
     double total;
 
     public ShoppingCart() {
          items = new ArrayList<ShoppingCartItem>();
-         numberOfıtems = 0;
+         numberOfItems = 0;
          total = 0;
     }
 
@@ -83,13 +83,13 @@ public class ShoppingCart {
     }
 
     public synchronized int getNumberOfItems(){
-        numberOfıtems = 0;
+        numberOfItems = 0;
         
         for(ShoppingCartItem scItems : items){
-            numberOfıtems += scItems.getQuantity();
+            numberOfItems += scItems.getQuantity();
         }
         
-        return numberOfıtems;
+        return numberOfItems;
     }
     
     public synchronized double getSubtotal(){
@@ -118,7 +118,7 @@ public class ShoppingCart {
     //Tüm fieldleri sıfırlayarak kartı boşaltır.
     public synchronized void clear(){
         items.clear();
-        numberOfıtems =0;
+        numberOfItems =0;
         total = 0;
     }
 }
